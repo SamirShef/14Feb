@@ -1,0 +1,44 @@
+head, body {
+    margin: 0;
+}
+
+.hearts {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.heart {
+    position: absolute; /* Позиционирование сердечек */
+    overflow: hidden; /* Скрываем все, что выходит за пределы */
+    animation: moveUp linear; /* Добавляем анимацию */
+}
+
+.heart svg {
+    width: 100%; /* Используем 100% ширины родителя */
+    height: 100%; /* Используем 100% высоты родителя */
+    fill: red; /* Цвет сердца */
+}
+
+@keyframes moveUp {
+    0% {
+        transform: translateY(100vh) scale(1); /* Начинаем ниже экрана и в нормальном размере */
+    }
+    100% {
+        transform: translateY(-90vh) scale(0); /* Уменьшаем до 0 для эффекта сгорания */
+        opacity: 0; /* Уменьшаем прозрачность */
+    }
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
