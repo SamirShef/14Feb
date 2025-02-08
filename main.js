@@ -20,13 +20,9 @@ function createHeart() {
     heart.appendChild(path);
 
     // Рандомный размер (от 30% до 60% от оригинального размера)
-    const size = getRandom(window.innerHeight / 40, window.innerHeight / 20);
+    const size = getRandom(window.innerHeight / 25, window.innerHeight / 12.5);
     heartDiv.style.width = `${size}px`;
     heartDiv.style.height = `${size}px`;
-
-    // Рандомный угол поворота (от -30 до 30 градусов)
-    const rotation = getRandom(-30, 30);
-    heartDiv.style.transform = `rotate(${rotation}deg)`;
 
     // Рандомная позиция по горизонтали
     const x = getRandom(0, window.innerWidth - size);
