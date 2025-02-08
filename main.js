@@ -20,7 +20,7 @@ function createHeart() {
     heart.appendChild(path);
 
     // Рандомный размер (от 30% до 60% от оригинального размера)
-    const size = getRandom(30, 60);
+    const size = getRandom(window.innerHeight / 40, window.innerHeight / 20);
     heartDiv.style.width = `${size}px`;
     heartDiv.style.height = `${size}px`;
 
