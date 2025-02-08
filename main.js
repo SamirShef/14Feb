@@ -1,4 +1,4 @@
-const numberOfHearts = 40; // Количество сердечек
+const numberOfHearts = 20; // Количество сердечек
 
 function getRandom(min, max) {
     return Math.random() * (max - min) + min;
@@ -19,14 +19,9 @@ function createHeart() {
 
     heart.appendChild(path);
 
-    // Рандомный размер (от 30% до 60% от оригинального размера)
     const size = getRandom(window.innerHeight / 20, window.innerHeight / 10);
     heartDiv.style.width = `${size}px`;
     heartDiv.style.height = `${size}px`;
-
-    // Рандомный угол поворота (от -30 до 30 градусов)
-    const rotation = getRandom(-30, 30);
-    heartDiv.style.transform = `rotate(${rotation}deg)`;
 
     // Рандомная позиция по горизонтали
     const x = getRandom(0, window.innerWidth - size);
@@ -43,8 +38,8 @@ function createHeart() {
         heartDiv.remove();
     });
 
-    // Создаем новое сердце через 30% от длительности анимации
-    setTimeout(createHeart, duration * 0.3 * 1000); // 0.6 * 1000 для преобразования в миллисекунды
+    // Создаем новое сердце через 15% от длительности анимации
+    setTimeout(createHeart, duration * 0.15 * 1000); // 0.1 * 1000 для преобразования в миллисекунды
 }
 
 // Создаем несколько сердечек
