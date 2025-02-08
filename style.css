@@ -1,5 +1,7 @@
 head, body {
     margin: 0;
+    scrollbar-width: none;
+    overflow: hidden;
 }
 
 .hearts {
