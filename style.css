@@ -65,7 +65,7 @@ head, body {
     background-color: rgba(224, 224, 224, 0.7);
     border-radius: 30px;
     backdrop-filter: blur(2px);
-    font-size: 200%;
+    font-size: 150%;
     text-align: center;
     
     display: flex;
@@ -139,7 +139,7 @@ head, body {
     display: flex;
     transition: 0.2s;
     flex-direction: column;
-    font-size: 60%;
+    font-size: 80%;
     width: 90%;
     text-align: center;
 }
