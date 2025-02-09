@@ -72,7 +72,7 @@ document.getElementById("start-buton").addEventListener("click",
         this.style.opacity = 0;
         const panel = document.getElementById("panel");
         panel.style.width = "80%";
-        panel.style.transform = "translateY(0%)";
+        panel.style.transform = "translateY(5%)";
         setTimeout(() => {
             this.style.display = "none";
             panel.style.height = `${calculateTotalHeight(panel)}px`;
@@ -146,8 +146,15 @@ function afterPoem()
     setTimeout(() => {
         const poemText = document.getElementById("poem-text");
         const panel = document.getElementById("panel");
+        const hearts = document.querySelector(".hearts");
         poemText.style.opacity = 0;
-        panel.style.width = "50vw";
-        panel.style.height = "50vw";
+        panel.style.width = 0;
+        panel.style.height = 0;
+        panel.style.opacity = 0;
+        document.body.style.backgroundColor = "black";
+        hearts.style.opacity = 0;
+        setTimeout(function() {
+            window.location.href = "tulips/html.html";
+        }, 2000);
     }, 3000);
 }

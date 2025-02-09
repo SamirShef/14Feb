@@ -5,6 +5,8 @@ head, body {
     margin: 0;
     overflow: hidden;
     font-family: sans-serif;
+    user-select: none;
+    transition: background-color 0.4s;
 
     display: flex;
     justify-content: center;
@@ -21,6 +23,7 @@ head, body {
     flex-direction: column;
     align-items: center;
     z-index: -1;
+    transition: opacity 0.4s;
 }
 
 .heart {
@@ -60,7 +63,7 @@ head, body {
     height: 30vh;
     transform: translateY(-30%);
     background-color: rgba(224, 224, 224, 0.7);
-    border-radius: 20px;
+    border-radius: 30px;
     backdrop-filter: blur(2px);
     font-size: 200%;
     text-align: center;
@@ -73,8 +76,8 @@ head, body {
 
 #start-buton {
     transition: 0.2s;
-    width: 30%;
-    height: 20%;
+    width: 40%;
+    height: 30%;
     transform: translateY(50%);
     border: 0;
     border-radius: 20px;
@@ -86,13 +89,14 @@ head, body {
     flex-direction: column;
     align-items: center;
 
-    font-size: 50%;
+    font-size: 60%;
     overflow: hidden;
 }
 
 #start-buton:hover {
-    width: 40%;
-    height: 30%;
+    width: 50%;
+    height: 40%;
+    font-size: 70%;
     transform: translateY(40%);
 
     .button-heart-left {
