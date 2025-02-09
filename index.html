@@ -5,12 +5,32 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <div class="hearts">
-            <!--<svg class="heart" viewBox="0 0 32 29.6">
-                <path d="M23.6,0c-3.4,0-6.3,2.7-7.6,5.6C14.7,2.7,11.8,0,8.4,0C3.8,0,0,3.8,0,8.4c0,9.4,9.5,11.9,16,21.2
-                c6.1-9.3,16-12.1,16-21.2C32,3.8,28.2,0,23.6,0z"/>
-            </svg>!-->
+        <div class="panel" id="panel">
+            <div id="ready-text" style="margin: 0 10px 0 10px;">Готова начать?</div>
+            <button id="start-buton">
+                Начать
+                <div class="button-heart-left">
+                    <svg viewBox="0 0 32 29.6">
+                        <path d="M23.6,0c-3.4,0-6.3,2.7-7.6,5.6C14.7,2.7,11.8,0,8.4,0C3.8,0,0,3.8,0,8.4c0,9.4,9.5,11.9,16,21.2
+                        c6.1-9.3,16-12.1,16-21.2C32,3.8,28.2,0,23.6,0z" fill="red"/>
+                    </svg>
+                </div>
+                <div class="button-heart-right">
+                    <svg viewBox="0 0 32 29.6">
+                        <path d="M23.6,0c-3.4,0-6.3,2.7-7.6,5.6C14.7,2.7,11.8,0,8.4,0C3.8,0,0,3.8,0,8.4c0,9.4,9.5,11.9,16,21.2
+                        c6.1-9.3,16-12.1,16-21.2C32,3.8,28.2,0,23.6,0z" fill="red"/>
+                    </svg>
+                </div>
+            </button>
+
+            <div id="poem-block">
+                <div id="poem-text">
+                    
+                </div>
+            </div>
         </div>
+        <div class="hearts"></div>
+
         <script src="main.js"></script>
     </body>
 </html>

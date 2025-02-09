@@ -1,4 +1,22 @@
 const numberOfHearts = 20; // Количество сердечек
+const lines = ["Я люблю тебя ночью,",
+    "Люблю тебя днем,",
+    "Ты и утром, и вечером",
+    "В сердце моем.",
+    "С Днем влюбленных тебя",
+    "Я поздравить хочу!",
+    "И на память тебе",
+    "Валентинку вручу.",
+    "Чтобы знала ты точно",
+    "И наверняка,",
+    "Что люблю я тебя",
+    "На года, на века.",
+    "Для меня ты прекраснее",
+    "Всех на земле.",
+    "Я за встречу с тобой",
+    "Благодарен судьбе."
+    ];
+let lineIndex = 0;
 
 function getRandom(min, max) {
     return Math.random() * (max - min) + min;
@@ -39,10 +57,97 @@ function createHeart() {
     });
 
     // Создаем новое сердце через 15% от длительности анимации
-    setTimeout(createHeart, duration * 0.15 * 1000); // 0.1 * 1000 для преобразования в миллисекунды
+    setTimeout(createHeart, duration * 0.15 * 1000); // 0.15 * 1000 для преобразования в миллисекунды
 }
 
 // Создаем несколько сердечек
 for (let i = 0; i < numberOfHearts; i++) {
     createHeart();
+}
+
+document.getElementById("start-buton").addEventListener("click", 
+    function()
+    {
+        document.getElementById("ready-text").style.opacity = 0;
+        this.style.opacity = 0;
+        const panel = document.getElementById("panel");
+        panel.style.width = "80%";
+        panel.style.transform = "translateY(0%)";
+        setTimeout(() => {
+            this.style.display = "none";
+            panel.style.height = `${calculateTotalHeight(panel)}px`;
+        }, 50);
+        const poemBlock = document.getElementById("poem-block");
+        poemBlock.style.opacity = 0;
+        poemBlock.style.display = "flex";
+        poemBlock.style.opacity = 1;
+        lineIndex = 0;
+        setTimeout(() => {
+            const textElement = document.getElementById('poem-text');
+            textElement.textContent = ""; // Очищаем текст перед началом
+            showNextLine(); // Начинаем показывать строки
+        }, 1000);
+    }
+)
+
+function typeWriter(text, element, delay = 100, callback) {
+    let index = 0;
+
+    // Функция для показа следующего символа
+    function showNextChar() {
+        if (index < text.length) {
+            element.innerHTML += text.charAt(index); // Добавляем символ
+            index++;
+            setTimeout(showNextChar, delay); // Рекурсивно вызываем через заданный интервал
+        } else {
+            element.style.opacity = "1"; // Устанавливаем полную непрозрачность после завершения
+            if (callback) callback(); // Вызываем колбек, если он есть
+        }
+    }
+
+    showNextChar(); // Запускаем процесс
+}
+
+function showNextLine() {
+    const textElement = document.getElementById('poem-text');
+    const panel = document.getElementById("panel");
+    panel.style.height = `${calculateTotalHeight(panel)}px`;
+    
+    if (lineIndex < lines.length) {
+        const textToShow = lines[lineIndex];
+        textElement.innerHTML += lineIndex != 0 ? "<br>" : "";
+        panel.style.height = `${calculateTotalHeight(panel)}px`;
+        typeWriter(textToShow, textElement, 50, function() {
+            lineIndex++;
+            // Задержка перед показом следующей строки
+            setTimeout(showNextLine, 500); // Задержка 2 секунды
+        });
+    }
+    else {
+        afterPoem();
+    }
+}
+
+function calculateTotalHeight(container) {
+    let totalHeight = 20;
+    const children = container.children;
+
+    for (let child of children) {
+        totalHeight += child.offsetHeight + 
+            parseInt(getComputedStyle(child).marginTop) + 
+            parseInt(getComputedStyle(child).marginBottom);
+    }
+
+    return totalHeight;
+}
+
+function afterPoem()
+{
+    setTimeout(() => {
+        const poemText = document.getElementById("poem-text");
+        const panel = document.getElementById("panel");
+        poemText.style.opacity = 0;
+        panel.style.width = "50vw";
+        panel.style.height = "50vw";
+    }, 3000);
 }
